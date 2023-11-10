@@ -2,23 +2,35 @@
 /*************************************************************/
 /**                                                         **/
 /** LayerArchitect: MCAL                                    **/
-/** File Name : RCC_Private.h                               **/
+/** File Name : NVIC_Reg.h                                  **/
 /** Auther    : MOHAMED BEDIER MOHAMED                      **/
 /** Verision :  1.00                                        **/
 /**                                                         **/
 /*************************************************************/
 /*************************************************************/
 
-#ifndef RCC_PRIVATE_H_
-#define RCC_PRIVATE_H_
 
-#define  RCC_TIMEOUT  50000u
+#ifndef NVIC_REG_H_
+#define NVIC_REG_H_
 
-#define RCC_CFGR_PLLMUL_MASK   0xFFC3FFFF
-#define RCC_CFGR_PLLMUL_POS    18u
+#define  ISER    ((volatile uint32_t*)0xE000E100)
 
-/******************************    AHB Peripheral Base Addresses    ******************************/
+#define  ICER    ((volatile uint32_t*)0XE000E180)
 
-#define  RCC_BASE_ADDRESS    (RCC_Reg_t*)0x40021000U
+#define  ISPR    ((volatile uint32_t*)0XE000E200)
 
-#endif /* RCC_PRIVATE_H_ */
+#define  ICPR    ((volatile uint32_t*)0XE000E280)
+
+#define  IABR    ((volatile uint32_t*)0xE000E300)
+
+#define  IPR     ((volatile uint32_t*)0xE000E400)
+
+#define  STIR    ((volatile uint32_t*)0xE000EF00)
+
+
+
+
+
+
+#endif
+/* NVIC_REG_H_ */

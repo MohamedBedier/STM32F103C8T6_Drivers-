@@ -1,24 +1,23 @@
 /*************************************************************/
 /*************************************************************/
 /**                                                         **/
-/** LayerArchitect: MCAL                                    **/
-/** File Name : RCC_Private.h                               **/
+/**  LayerArchitecture : HAL                                **/
+/** File Name :KPD_Interface.h                              **/
 /** Auther    : MOHAMED BEDIER MOHAMED                      **/
 /** Verision :  1.00                                        **/
 /**                                                         **/
 /*************************************************************/
 /*************************************************************/
 
-#ifndef RCC_PRIVATE_H_
-#define RCC_PRIVATE_H_
 
-#define  RCC_TIMEOUT  50000u
+#ifndef KPD_INTERFACE_H_
+#define KPD_INTERFACE_H_
 
-#define RCC_CFGR_PLLMUL_MASK   0xFFC3FFFF
-#define RCC_CFGR_PLLMUL_POS    18u
+/**+
+ * @brief this function to get the pressed key
+ * @return this func return Local_u8PressedKey
+ */
 
-/******************************    AHB Peripheral Base Addresses    ******************************/
+uint8 KPD_u8GetPressedKey(void);
 
-#define  RCC_BASE_ADDRESS    (RCC_Reg_t*)0x40021000U
-
-#endif /* RCC_PRIVATE_H_ */
+#endif /* KPD_INTERFACE_H_ */

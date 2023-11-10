@@ -1,0 +1,4 @@
+../Src/LED_Program.c:28:9:LED_u8PinInit	2
+../Src/LED_Program.c:51:10:LED_u8LedTurnON	4
+../Src/LED_Program.c:89:10:LED_u8LedTurnOff	4
+../Src/LED_Program.c:126:9:LED_u8ToggleLed	2

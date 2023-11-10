@@ -2,23 +2,35 @@
 /*************************************************************/
 /**                                                         **/
 /** LayerArchitect: MCAL                                    **/
-/** File Name : RCC_Private.h                               **/
+/** File Name : Systick_private.h                           **/
 /** Auther    : MOHAMED BEDIER MOHAMED                      **/
 /** Verision :  1.00                                        **/
 /**                                                         **/
 /*************************************************************/
 /*************************************************************/
 
-#ifndef RCC_PRIVATE_H_
-#define RCC_PRIVATE_H_
 
-#define  RCC_TIMEOUT  50000u
+#ifndef SYSTICK_PRIVATE_H_
+#define SYSTICK_PRIVATE_H_
 
-#define RCC_CFGR_PLLMUL_MASK   0xFFC3FFFF
-#define RCC_CFGR_PLLMUL_POS    18u
 
-/******************************    AHB Peripheral Base Addresses    ******************************/
+#define  AHB_CLK_DIVIDED_bY_8 0u
+#define AHB_CLK  1u
 
-#define  RCC_BASE_ADDRESS    (RCC_Reg_t*)0x40021000U
+#define CONVERT_FROM_US_TO_MS  1000u
 
-#endif /* RCC_PRIVATE_H_ */
+#define MAX_RELOAD_VALUE   16777215U
+
+#define  FLAG_NOT_RAISED     0u
+
+#define RESET_RELOAD_VALUE  0u
+#define SYS_FREQ_8MHZ  8u
+
+#define SYSTICK_MASK    0xFFFFFF
+
+
+#define AHB_TICK_TIME     0.0625f
+#define AHB_BY8_TICK_TIME 0.5f
+
+
+#endif /* SYSTICK_PRIVATE_H_ */

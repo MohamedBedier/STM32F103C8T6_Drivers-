@@ -1,0 +1,2 @@
+../Src/Systick_Prog.c:36:9:SYSTICK_u8Delay_MS	2
+../Src/Systick_Prog.c:117:9:SYSTICK_u8Delay_US	2

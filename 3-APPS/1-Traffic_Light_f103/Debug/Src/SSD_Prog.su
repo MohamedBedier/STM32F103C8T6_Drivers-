@@ -1,0 +1,4 @@
+../Src/SSD_Prog.c:46:9:SSD_u8PinInit	24	static
+../Src/SSD_Prog.c:71:9:SSD_u8DisplayOn	24	static
+../Src/SSD_Prog.c:110:9:SSD_u8DisplayOFF	24	static
+../Src/SSD_Prog.c:147:9:SSD_u8DisplayNumber	32	static
