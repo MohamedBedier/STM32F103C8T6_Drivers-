@@ -19,10 +19,30 @@
 #define  SRAM_BASE_ADDRESS    0x20000000UL  
 #define  ROM_BASE_ADDRESS     0x1FFFB000UL
 
+/******************************    APB2 Peripheral Base Addresses       ******************************/
+
+#define  GPIOA_BASE_ADDRESS   0x40010800UL
+#define  GPIOB_BASE_ADDRESS   0x40010C00UL
+#define  GPIOC_BASE_ADDRESS   0x40011000UL
+#define  GPIOD_BASE_ADDRESS   0x40011400UL
+#define  GPIOE_BASE_ADDRESS   0x40011800UL
+#define  GPIOF_BASE_ADDRESS   0x40011C00UL
+#define  GPIOG_BASE_ADDRESS   0x40012000UL
+
+/******************************    AHB Peripheral Base Addresses    ******************************/
+
+#define  RCC_BASE_ADDRESS    0x40021000UL
+
+
+/******************************    CORTEX-M4 Core Peripheral Base Addresses    ******************************/
+#define    NVIC_BASE_ADDRESS   0xE000E100UL
+
+#define    SYST_BASE_ADDRESS   0xE000E010UL
+
+#define    SCB_BASE_ADDRESS    0xE000ED00UL
 
 
 /******************************    RCC Register Definitions Structure  ******************************/
-
 
 typedef struct
 {
@@ -38,7 +58,8 @@ typedef struct
 	volatile uint32_t RCC_CSR;       /* Control/status register */
 }RCC_Reg_t;
 
-
+/******************************    RCC Peripheral Definitions       ******************************/
+#define   RCC  ((RCC_Reg_t*)RCC_BASE_ADDRESS)
 
 
 /******************************    GPIO Register Definitions Structure  ******************************/
@@ -58,7 +79,15 @@ typedef  struct
 
 }GPIO_RegDef_t;	
 
+/******************************    GPIO Peripheral Definitions       ******************************/
 
+#define   GPIOA     ((GPIO_RegDef_t*)GPIOA_BASE_ADDRESS)
+#define   GPIOB     ((GPIO_RegDef_t*)GPIOB_BASE_ADDRESS)
+#define   GPIOC     ((GPIO_RegDef_t*)GPIOC_BASE_ADDRESS)
+#define   GPIOD     ((GPIO_RegDef_t*)GPIOD_BASE_ADDRESS)
+#define   GPIOE     ((GPIO_RegDef_t*)GPIOE_BASE_ADDRESS)
+#define   GPIOF     ((GPIO_RegDef_t*)GPIOF_BASE_ADDRESS)
+#define   GPIOG     ((GPIO_RegDef_t*)GPIOG_BASE_ADDRESS)
 
 
 /******************************    Systick Register Definitions Structure  ******************************/
@@ -72,30 +101,74 @@ typedef  struct
 
 }SYSTICK_RegDef_t;
 
+/******************************    SYSTICK Peripheral Definitions       ******************************/
+#define   SYSTICK  ((SYSTICK_RegDef_t*)SYST_BASE_ADDRESS)
+
+
+/******************************    NVIC Register Definitions   ******************************/
+
+/* if you want to work by Struct */
+
+typedef struct
+{
+	volatile uint32_t ISER[8]; /* Interrupt Set-enable Registers */
+	volatile uint32_t Reserved_1[24]; /* Offset */
+	volatile uint32_t ICER[8]; /* Interrupt Clear-enable Registers */
+	volatile uint32_t Reserved_2[24]; /* Offset */
+	volatile uint32_t ISPR[8]; /* Interrupt Set-pending Registers */
+	volatile uint32_t Reserved_3[24]; /* Offset */
+	volatile uint32_t ICPR[8]; /* Interrupt Clear-pending Registers */
+	volatile uint32_t Reserved_4[24]; /* Offset */
+	volatile uint32_t IABR[8]; /* Interrupt Active Bit Registers */
+	volatile uint32_t Reserved_5[56]; /* Offset */
+	volatile uint8_t  IPR[240] ; /* Interrupt Priority Registers */
+	volatile uint32_t Reserved_6[643]; /* Offset */
+	volatile uint32_t STIR; /* Software Trigger Interrupt Register*/
+
+}NVIC_Reg_t;
+/******************* NVIC structure pointer **********************/
+#define      NVIC		((NVIC_Reg_t *)(NVIC_BASE_ADDRESS))
+
+
+/* if you want to work by Macros ,but you change in our code only delete [NVIC->] */
+
+//#define  ISER    ((volatile uint32_t*)0xE000E100) /* Interrupt Set-enable Registers */
+//#define  ICER    ((volatile uint32_t*)0XE000E180) /* Interrupt Clear-enable Registers */
+//#define  ISPR    ((volatile uint32_t*)0XE000E200) /* Interrupt Set-pending Registers */
+//#define  ICPR    ((volatile uint32_t*)0XE000E280) /* Interrupt Clear-pending Registers */
+//#define  IABR    ((volatile uint32_t*)0xE000E300) /* Interrupt Active Bit Registers */
+//#define  IPR     ((volatile uint8_t*)0xE000E400) /* Interrupt Priority Registers */
+//#define  STIR    ((volatile uint32_t*)0xE000EF00) /* Software Trigger Interrupt Register*/
+
+
+/******************************    SCB Register Definitions   ******************************/
+typedef struct
+{
+	volatile  uint32_t   CPUID;
+	volatile  uint32_t   ICSR;
+	volatile  uint32_t   VTOR;
+	volatile  uint32_t   AIRCR;
+	volatile  uint32_t   SCR;
+	volatile  uint32_t   CCR;
+	volatile  uint32_t   SHPR1;
+	volatile  uint32_t   SHPR2;
+	volatile  uint32_t   SHPR3;
+	volatile  uint32_t   SHCSR;
+	volatile  uint32_t   CFSR;
+	volatile  uint32_t   HFSR;
+	volatile  uint32_t   MMAR;
+	volatile  uint32_t   BFAR;
+	volatile  uint32_t   AFSR;
+}SCB_Reg_t;
+
+/******************************    SCB structure pointer **********************/
+#define      SCB		((SCB_Reg_t *)(SCB_BASE_ADDRESS))
 
 /******************************    APB1 Peripheral Base Addresses       ******************************/
 
-/******************************    APB2 Peripheral Base Addresses       ******************************/
-
-#define  GPIOA_BASE_ADDRESS   0x40010800U
-#define  GPIOB_BASE_ADDRESS   0x40010C00U
-#define  GPIOC_BASE_ADDRESS   0x40011000U
-#define  GPIOD_BASE_ADDRESS   0x40011400U
-#define  GPIOE_BASE_ADDRESS   0x40011800U
-#define  GPIOF_BASE_ADDRESS   0x40011C00U
-#define  GPIOG_BASE_ADDRESS   0x40012000U
 
 
 
-/******************************    GPIO Peripheral Definitions       ******************************/
-
-#define   GPIOA     ((GPIO_RegDef_t*)GPIOA_BASE_ADDRESS)
-#define   GPIOB     ((GPIO_RegDef_t*)GPIOB_BASE_ADDRESS)
-#define   GPIOC     ((GPIO_RegDef_t*)GPIOC_BASE_ADDRESS)
-#define   GPIOD     ((GPIO_RegDef_t*)GPIOD_BASE_ADDRESS)
-#define   GPIOE     ((GPIO_RegDef_t*)GPIOE_BASE_ADDRESS)
-#define   GPIOF     ((GPIO_RegDef_t*)GPIOF_BASE_ADDRESS)
-#define   GPIOG     ((GPIO_RegDef_t*)GPIOG_BASE_ADDRESS)
 
 
 #endif

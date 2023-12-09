@@ -16,16 +16,6 @@
 #include "RCC_Private.h"
 #include "RCC_Interface.h"
 
-
-/******************************    AHB Peripheral Base Addresses    ******************************/
-
-#define  RCC_BASE_ADDRESS    (RCC_Reg_t*)0x40021000U
-
-/* define a pointer from type of struct [RCC_Reg_t] which carry the base address of RCC
-			   Don't forget to cast it to (RCC_Reg_t* ) */
-
-RCC_Reg_t *RCC = RCC_BASE_ADDRESS;
-
 /**
  * @fn RCC_u8SetClkSts
  * @brief this function to set clock from its options [HSE,HSI,PLL] and set its status too [on,off]

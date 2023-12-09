@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include "ErrType.h"
 #include "BIT_MATH.h"
-#include "Stm32F446xx.h"
+#include "Stm32F103xx.h"
 #include "NVIC_private.h"
 #include "NVIC_interface.h"
 #include "NVIC_Reg.h"
